@@ -521,8 +521,93 @@ body { background: var(--paper); }
 .mail-action .contact-icon { background: #e4d858; color: var(--ink); }
 .contact-action small { color: #69576d; }
 .poster-media .planet-glow { display: none; }
+.nav-cta > span:first-child { color: inherit; }
+.nav-cta > span:last-child { color: var(--yellow); }
+.language-switch { gap: 4px; padding: 4px; border-color: #b6aabb; }
+.language-switch button { justify-content: center; gap: 5px; min-width: 48px; min-height: 34px; padding: 6px 7px; }
+.language-switch button[aria-pressed="true"] { background: #2b2034; color: #fff8f1; }
+.language-switch .flag-icon { display: block; flex: none; width: 22px; height: 15px; border: 1px solid #5b5360; }
+.hero-collage { position: relative; width: min(100%, 510px); height: 420px; }
+.collage-note { position: absolute; top: 4%; left: 3%; color: #e4d858; font: 9px var(--mono); letter-spacing: .1em; }
+.collage-piece { position: absolute; overflow: hidden; margin: 0; padding: 8px; background: #f6f1e9; box-shadow: 7px 9px 0 #120d1b55; }
+.collage-piece img, .collage-piece video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.collage-main { z-index: 1; top: 12%; left: 8%; width: 45%; height: 70%; transform: rotate(-4deg); }
+.collage-side { z-index: 0; top: 19%; right: 3%; width: 52%; aspect-ratio: 1.5; transform: rotate(3deg); background: #e4d858; }
+.collage-motion { z-index: 2; bottom: 5%; right: 9%; width: 57%; aspect-ratio: 16 / 9; padding: 6px; background: #ed4e72; transform: rotate(-2deg); }
+.collage-caption { position: absolute; z-index: 3; left: 2%; bottom: 4%; padding: 7px 9px; background: #e4d858; color: #281d30; font: 8px var(--mono); letter-spacing: .04em; transform: rotate(-2deg); }
 @media (max-width: 600px) {
   .hero-sticker { padding: 8px 10px; font-size: 7px; }
   .sticker-top { top: -8px; right: -7px; }
   .sticker-bottom { left: -8px; bottom: -5px; }
+}
+@media (max-width: 700px) {
+  .page-wrap { width: calc(100% - 36px); }
+  .topbar { display: grid; grid-template-columns: minmax(44px, 1fr) auto; grid-template-areas: 'logo language' 'navigation navigation'; min-height: 0; gap: 12px 10px; padding: 12px 0 10px; }
+  .topbar > .wordmark { grid-area: logo; }
+  .topbar > .desktop-nav { grid-area: navigation; display: grid; grid-template-columns: 1fr 1.25fr auto; justify-content: stretch; align-items: center; width: 100%; gap: 5px; margin: 0; font-size: clamp(9px, 2.8vw, 11px); }
+  .topbar > .desktop-nav > a:not(.nav-cta) { white-space: nowrap; }
+  .topbar > .desktop-nav > a:nth-child(2) { text-align: center; }
+  .topbar > .desktop-nav .nav-cta { justify-self: end; padding: 9px 11px; white-space: nowrap; }
+  .topbar > .language-switch { grid-area: language; justify-self: end; margin: 0; }
+  .topbar > .availability { display: none; }
+  .hero { width: 100%; min-height: 0; gap: 10px; padding: 46px 23px 57px; }
+  .hero-copy { min-height: 0; }
+  .hero h1 { margin: 34px 0 20px; font-size: clamp(38px, 11vw, 49px); }
+  .hero-copy > p { max-width: 420px; font-size: 14px; line-height: 1.72; }
+  .hero-visual { min-height: 0; margin: 12px 17px 0; }
+  .hero-collage { width: 100%; height: auto; aspect-ratio: 1.06; }
+  .hero-sticker { max-width: 142px; padding: 8px 10px; font-size: 7px; }
+  .sticker-top { top: 0; right: -9px; }
+  .sticker-bottom { left: -9px; bottom: -4px; }
+  .hero-bottom { left: 23px; right: 23px; font-size: 7px; }
+  .hero-bottom span:nth-child(2) { display: none; }
+
+  .work-section { padding-top: 68px; padding-bottom: 70px; }
+  .section-heading { align-items: flex-start; gap: 12px; margin-bottom: 27px; padding-bottom: 20px; }
+  .section-heading h2 { font-size: clamp(50px, 14vw, 68px); }
+  .section-heading > p { width: 100%; max-width: 360px; margin: 0; font-size: 13px; line-height: 1.7; }
+  .project-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 34px; }
+  .project-grid > .project-card { grid-column: 1; width: 100%; margin: 0; }
+  .project-media, .card-wedding .project-media, .card-birthday .project-media, .card-sophie .project-media, .card-lumi .project-media, .card-gaming .project-media, .card-film .project-media, .card-reel .project-media { aspect-ratio: 1.08; }
+  .project-grid > .card-sophie .project-media { aspect-ratio: 1 / 1; }
+  .project-grid > .card-wedding .project-media, .project-grid > .card-birthday .project-media { aspect-ratio: .82; }
+  .project-grid > .card-lumi .project-media, .project-grid > .card-gaming .project-media { aspect-ratio: 1.5; }
+  .project-grid > .card-dj .project-media { aspect-ratio: 16 / 9 !important; }
+  .project-grid > .card-film .project-media { aspect-ratio: .9; }
+  .project-info { align-items: flex-start; gap: 12px; padding: 12px 1px 0; }
+  .project-info h3 { margin-top: 6px; font-size: 22px; }
+  .project-info p { max-width: 300px; font-size: 12px; line-height: 1.65; }
+  .project-type { font-size: 8px; }
+  .project-arrow { flex-basis: 34px; width: 34px; height: 34px; }
+  .media-badge { top: 10px; right: 10px; padding: 8px 10px; font-size: 8px; }
+  .poster-media video { object-fit: cover; }
+  .about-section { padding: 38px 0 30px; }
+  .about-content { grid-template-columns: 1fr; gap: 26px; padding: 43px 0 34px; }
+  .about-title h2 { font-size: clamp(58px, 16vw, 78px); }
+  .about-copy { max-width: 100%; font-size: 13px; line-height: 1.75; }
+  .about-copy .about-lead { font-size: 22px; }
+  .service-list { gap: 8px; margin-top: 20px; }
+  .service-list span { padding: 9px 11px; font-size: 11px; }
+  .about-strip { gap: 7px; font-size: 7px; letter-spacing: .025em; }
+  .contact-section { width: calc(100% - 36px); padding: 56px 21px 42px; margin-bottom: 42px; }
+  .contact-section h2 { font-size: clamp(46px, 12.5vw, 66px); line-height: .98; }
+  .contact-section > p { font-size: 13px; line-height: 1.7; }
+  .contact-actions { flex-direction: column; gap: 12px; }
+  .contact-action { width: 100%; min-width: 0; min-height: 60px; padding: 11px 13px; }
+  .contact-foot { margin-top: 42px; font-size: 7px; }
+  .footer { min-height: 68px; gap: 10px; font-size: 8px; }
+}
+@media (max-width: 380px) {
+  .page-wrap { width: calc(100% - 28px); }
+  .topbar > .desktop-nav { font-size: 9px; }
+  .topbar > .desktop-nav .nav-cta { padding: 8px 9px; }
+  .language-switch { gap: 2px; padding: 3px; }
+  .language-switch button { min-width: 43px; gap: 3px; padding: 5px; }
+  .language-switch .flag-icon { width: 19px; height: 13px; }
+  .hero { padding-inline: 18px; }
+  .hero h1 { font-size: clamp(37px, 10.8vw, 41px); }
+  .hero-visual { margin-inline: 11px; }
+  .project-grid { gap: 30px; }
+  .contact-section { width: calc(100% - 28px); padding-inline: 17px; }
+  .footer { font-size: 7px; }
 }
