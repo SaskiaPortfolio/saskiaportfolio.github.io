@@ -523,10 +523,24 @@ body { background: var(--paper); }
 .poster-media .planet-glow { display: none; }
 .nav-cta > span:first-child { color: inherit; }
 .nav-cta > span:last-child { color: var(--yellow); }
-.language-switch { gap: 4px; padding: 4px; border-color: #b6aabb; }
-.language-switch button { justify-content: center; gap: 5px; min-width: 48px; min-height: 34px; padding: 6px 7px; }
-.language-switch button[aria-pressed="true"] { background: #2b2034; color: #fff8f1; }
-.language-switch .flag-icon { display: block; flex: none; width: 22px; height: 15px; border: 1px solid #5b5360; }
+.language-picker { position: relative; z-index: 20; flex: 0 0 auto; }
+.language-toggle { display: flex; width: 43px; height: 39px; align-items: center; justify-content: center; gap: 5px; border: 0; background: transparent; color: var(--ink); cursor: pointer; transition: background .18s; }
+.language-toggle:hover, .language-toggle[aria-expanded="true"] { background: #e8e0ec; }
+.language-flag { display: block; flex: none; width: 25px; height: 17px; overflow: hidden; border: 1px solid #34283a2e; border-radius: 2px; box-shadow: 0 1px 2px #281d3022; }
+.language-toggle .language-flag { display: none; }
+html[lang="de"] .language-toggle .flag-de,
+html[lang^="en"] .language-toggle .flag-en,
+html[lang="it"] .language-toggle .flag-it { display: block; }
+.language-chevron { width: 10px; height: 10px; fill: none; stroke: #65566b; stroke-width: 1.5; transition: transform .18s; }
+.language-toggle[aria-expanded="true"] .language-chevron { transform: rotate(180deg); }
+.language-menu { position: absolute; top: calc(100% + 7px); right: 0; width: 174px; padding: 6px; border: 1px solid #34283a20; background: #fffdf9; box-shadow: 0 10px 28px #281d3024; }
+.language-menu[hidden] { display: none; }
+.language-menu button { display: flex; width: 100%; min-height: 40px; align-items: center; gap: 11px; padding: 7px 9px; border: 0; background: transparent; color: var(--ink); text-align: left; font: 500 12px var(--sans); cursor: pointer; }
+.language-menu button:hover { background: #f0eaf2; }
+.language-menu button[aria-pressed="true"] { background: #f2edf3; font-weight: 700; }
+.language-check { margin-left: auto; color: #805399; opacity: 0; }
+.language-menu button[aria-pressed="true"] .language-check { opacity: 1; }
+.language-picker button:focus-visible { outline: 2px solid #805399; outline-offset: 2px; }
 .hero-collage { position: relative; width: min(100%, 510px); height: 420px; }
 .collage-note { position: absolute; top: 4%; left: 3%; color: #e4d858; font: 9px var(--mono); letter-spacing: .1em; }
 .collage-piece { position: absolute; overflow: hidden; margin: 0; padding: 8px; background: #f6f1e9; box-shadow: 7px 9px 0 #120d1b55; }
@@ -548,7 +562,7 @@ body { background: var(--paper); }
   .topbar > .desktop-nav > a:not(.nav-cta) { white-space: nowrap; }
   .topbar > .desktop-nav > a:nth-child(2) { text-align: center; }
   .topbar > .desktop-nav .nav-cta { justify-self: end; padding: 9px 11px; white-space: nowrap; }
-  .topbar > .language-switch { grid-area: language; justify-self: end; margin: 0; }
+  .topbar > .language-picker { grid-area: language; justify-self: end; margin: 0; }
   .topbar > .availability { display: none; }
   .hero { width: 100%; min-height: 0; gap: 10px; padding: 46px 23px 57px; }
   .hero-copy { min-height: 0; }
@@ -601,9 +615,8 @@ body { background: var(--paper); }
   .page-wrap { width: calc(100% - 28px); }
   .topbar > .desktop-nav { font-size: 9px; }
   .topbar > .desktop-nav .nav-cta { padding: 8px 9px; }
-  .language-switch { gap: 2px; padding: 3px; }
-  .language-switch button { min-width: 43px; gap: 3px; padding: 5px; }
-  .language-switch .flag-icon { width: 19px; height: 13px; }
+  .language-toggle { width: 40px; height: 36px; }
+  .language-flag { width: 23px; height: 16px; }
   .hero { padding-inline: 18px; }
   .hero h1 { font-size: clamp(35px, 10.2vw, 39px); }
   .hero-visual { margin-inline: 11px; }
@@ -623,4 +636,71 @@ body { background: var(--paper); }
   .project-grid > .card-dj .project-media { aspect-ratio: 16 / 9 !important; }
   .project-grid > .card-lumi .project-media,
   .project-grid > .card-gaming .project-media { aspect-ratio: 1.5; }
+}
+
+/* Header hierarchy: availability left, navigation centered, language at the far right. */
+.topbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 20px;
+}
+.topbar > .availability {
+  justify-self: start;
+  gap: 10px;
+  min-height: 39px;
+  padding: 0 13px;
+  border-radius: 999px;
+  border: 1px solid #d5ccda;
+  background: #eee9f0;
+  color: #382d40;
+  font: 600 10px var(--sans);
+  letter-spacing: .01em;
+  text-transform: none;
+  white-space: nowrap;
+  transition: background .2s, border-color .2s, transform .2s;
+}
+.topbar > .availability:hover {
+  border-color: #9b75a5;
+  background: #e7dcea;
+  transform: translateY(-1px);
+}
+.topbar > .availability i {
+  width: 8px;
+  height: 8px;
+  background: #69a47d;
+  box-shadow: 0 0 0 3px #69a47d21;
+}
+.topbar > .availability b { color: #805399; font-size: 13px; font-weight: 500; }
+.topbar > .desktop-nav { justify-self: center; margin-left: 0; }
+.topbar > .language-picker { justify-self: end; }
+@media (max-width: 760px) {
+  .topbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: 'availability language' 'navigation navigation';
+    gap: 12px 10px;
+  }
+  .topbar > .availability {
+    grid-area: availability;
+    display: flex;
+    justify-self: start;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 36px;
+    gap: 8px;
+    padding: 0 10px;
+    border-radius: 999px;
+    font-size: 9px;
+  }
+  .topbar > .desktop-nav { grid-area: navigation; justify-self: stretch; margin: 0; }
+  .topbar > .language-picker { grid-area: language; justify-self: end; }
+}
+@media (min-width: 761px) and (max-width: 850px) {
+  .topbar > .availability { display: flex; }
+  .topbar { gap: 10px; }
+  .topbar > .desktop-nav { gap: 12px; font-size: 10px; }
+  .topbar > .desktop-nav .nav-cta { padding: 10px 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .topbar > .availability { transition: none; }
 }

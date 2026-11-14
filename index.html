@@ -9,22 +9,30 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=15">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=19">
+  <script src="script.js?v=3" defer></script>
 </head>
 <body>
   <header class="topbar page-wrap">
-    <a class="wordmark" href="#start" aria-label="Saskia Leismann — Startseite"><svg viewBox="0 0 52 46" role="img" aria-hidden="true"><path d="M25 9C19 4 9 5 7 11c-2 6 6 8 14 11 8 3 8 10 2 15-6 4-14 3-18-1M33 8l-4 25c-1 6 4 8 11 3M35 5l.2.2"/></svg></a>
-    <nav class="desktop-nav" aria-label="Hauptnavigation">
+    <a class="availability" href="#kontakt"><i></i><span data-i18n="availability">Offen für neue Projekte</span><b aria-hidden="true">↗</b></a>
+    <nav class="desktop-nav" aria-label="Hauptnavigation" data-aria-de="Hauptnavigation" data-aria-en="Main navigation">
       <a href="#arbeiten" data-i18n="nav.work">Arbeiten</a>
       <a href="#about" data-i18n="nav.about">Hi, ich bin Saskia</a>
       <a class="nav-cta" href="#kontakt"><span data-i18n="nav.contact">Sag Hallo</span> <span>↗</span></a>
     </nav>
-    <div class="language-switch" role="group" aria-label="Sprache wählen / Choose language">
-      <button type="button" data-language="de" aria-label="Deutsch" aria-pressed="true"><svg class="flag-icon" viewBox="0 0 24 16" aria-hidden="true"><path fill="#151515" d="M0 0h24v5.34H0z"/><path fill="#d00" d="M0 5.33h24v5.34H0z"/><path fill="#ffce00" d="M0 10.66h24V16H0z"/></svg> DE</button>
-      <button type="button" data-language="en" aria-label="English" aria-pressed="false"><svg class="flag-icon" viewBox="0 0 24 16" aria-hidden="true"><path fill="#22407b" d="M1 0h22a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1z"/><path stroke="#fff" stroke-width="4" d="m0 0 24 16M24 0 0 16"/><path stroke="#c8102e" stroke-width="1.7" d="m0 0 24 16M24 0 0 16"/><path stroke="#fff" stroke-width="6" d="M12 0v16M0 8h24"/><path stroke="#c8102e" stroke-width="3" d="M12 0v16M0 8h24"/></svg> EN</button>
+    <div class="language-picker">
+      <button class="language-toggle" type="button" aria-label="Sprache wählen" data-aria-de="Sprache wählen" data-aria-en="Choose language" data-aria-it="Scegli la lingua" aria-expanded="false" aria-haspopup="true" aria-controls="language-menu">
+        <svg class="language-flag flag-de" viewBox="0 0 24 16" aria-hidden="true"><path fill="#151515" d="M0 0h24v5.34H0z"/><path fill="#d00" d="M0 5.33h24v5.34H0z"/><path fill="#ffce00" d="M0 10.66h24V16H0z"/></svg>
+        <svg class="language-flag flag-en" viewBox="0 0 24 16" aria-hidden="true"><path fill="#22407b" d="M1 0h22a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1z"/><path stroke="#fff" stroke-width="4" d="m0 0 24 16M24 0 0 16"/><path stroke="#c8102e" stroke-width="1.7" d="m0 0 24 16M24 0 0 16"/><path stroke="#fff" stroke-width="6" d="M12 0v16M0 8h24"/><path stroke="#c8102e" stroke-width="3" d="M12 0v16M0 8h24"/></svg>
+        <svg class="language-flag flag-it" viewBox="0 0 24 16" aria-hidden="true"><path fill="#009246" d="M0 0h8v16H0z"/><path fill="#fff" d="M8 0h8v16H8z"/><path fill="#ce2b37" d="M16 0h8v16h-8z"/></svg>
+        <svg class="language-chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="m2 4 4 4 4-4"/></svg>
+      </button>
+      <div class="language-menu" id="language-menu" role="group" aria-label="Sprachen" data-aria-de="Sprachen" data-aria-en="Languages" data-aria-it="Lingue" hidden>
+        <button type="button" data-language="de" aria-pressed="true"><svg class="language-flag" viewBox="0 0 24 16" aria-hidden="true"><path fill="#151515" d="M0 0h24v5.34H0z"/><path fill="#d00" d="M0 5.33h24v5.34H0z"/><path fill="#ffce00" d="M0 10.66h24V16H0z"/></svg><span data-i18n="language.de">Deutsch</span><span class="language-check" aria-hidden="true">✓</span></button>
+        <button type="button" data-language="en" aria-pressed="false"><svg class="language-flag" viewBox="0 0 24 16" aria-hidden="true"><path fill="#22407b" d="M1 0h22a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1a1 1 0 0 1 1-1z"/><path stroke="#fff" stroke-width="4" d="m0 0 24 16M24 0 0 16"/><path stroke="#c8102e" stroke-width="1.7" d="m0 0 24 16M24 0 0 16"/><path stroke="#fff" stroke-width="6" d="M12 0v16M0 8h24"/><path stroke="#c8102e" stroke-width="3" d="M12 0v16M0 8h24"/></svg><span data-i18n="language.en">English</span><span class="language-check" aria-hidden="true">✓</span></button>
+        <button type="button" data-language="it" aria-pressed="false"><svg class="language-flag" viewBox="0 0 24 16" aria-hidden="true"><path fill="#009246" d="M0 0h8v16H0z"/><path fill="#fff" d="M8 0h8v16H8z"/><path fill="#ce2b37" d="M16 0h8v16h-8z"/></svg><span data-i18n="language.it">Italiano</span><span class="language-check" aria-hidden="true">✓</span></button>
+      </div>
     </div>
-    <span class="availability"><i></i><span data-i18n="availability">Offen für neue Projekte</span></span>
   </header>
 
   <main>
@@ -42,7 +50,7 @@
           <div class="collage-note mono" data-i18n="hero.collageNote">AUS DEM STUDIO · 01—03</div>
           <figure class="collage-piece collage-main"><img src="assets/birthday-floral.png" alt="Florale Geburtstagseinladung für Sophie Kaiser" data-alt-de="Florale Geburtstagseinladung für Sophie Kaiser" data-alt-en="Floral birthday invitation for Sophie Kaiser" fetchpriority="high"></figure>
           <figure class="collage-piece collage-side"><img src="assets/lumi-skin-preview.jpg" alt="Instagram-Marken-Konzept für Lumi Skin" data-alt-de="Instagram-Marken-Konzept für Lumi Skin" data-alt-en="Lumi Skin Instagram branding concept" loading="lazy"></figure>
-          <figure class="collage-piece collage-motion"><video autoplay muted loop playsinline preload="metadata" poster="assets/dj-ketanoizer-poster.jpg" aria-label="Animiertes Poster für DJ Ketanoizer"><source src="assets/dj-ketanoizer.mp4" type="video/mp4"></video></figure>
+          <figure class="collage-piece collage-motion"><video autoplay muted loop playsinline preload="metadata" poster="assets/dj-ketanoizer-poster.jpg" aria-label="Animiertes Poster für DJ Ketanoizer" data-aria-de="Animiertes Poster für DJ Ketanoizer" data-aria-en="Animated poster for DJ Ketanoizer"><source src="assets/dj-ketanoizer.mp4" type="video/mp4"><span data-i18n="video.unsupported">Dein Browser kann dieses Video leider nicht abspielen.</span></video></figure>
           <span class="collage-caption" data-i18n="hero.collageCaption">EINLADUNGEN, BRANDING & MOTION</span>
         </div>
         <div class="hero-sticker sticker-bottom" data-i18n="hero.sticker2">VON DER ERSTEN IDEE BIS ZUM LETZTEN FRAME</div>
@@ -63,14 +71,14 @@
         </article>
         <article class="project-card card-birthday">
           <div class="project-media image-media"><img src="assets/birthday-invitation.png" alt="Bunte Geburtstagseinladung für Caroline mit Häschen und Blumen" data-alt-de="Bunte Geburtstagseinladung für Caroline mit Häschen und Blumen" data-alt-en="Colourful illustrated birthday invitation for Caroline" loading="lazy"><span class="media-badge badge-yellow">YAY, 5!</span></div>
-          <div class="project-info"><div><span class="project-type" data-i18n="project.caroline.type">ILLUSTRATION · GEBURTSTAG</span><h3>Caroline wird 5</h3><p data-i18n="project.caroline.desc">Geburtstagseinladung · Illustration</p></div><span class="project-arrow">↗</span></div>
+          <div class="project-info"><div><span class="project-type" data-i18n="project.caroline.type">ILLUSTRATION · GEBURTSTAG</span><h3 data-i18n="project.caroline.title">Caroline wird 5</h3><p data-i18n="project.caroline.desc">Geburtstagseinladung · Illustration</p></div><span class="project-arrow">↗</span></div>
         </article>
         <article class="project-card card-sophie">
           <div class="project-media image-media"><img src="assets/birthday-floral.png" alt="Florale Geburtstagseinladung für Sophie Kaiser" data-alt-de="Florale Geburtstagseinladung für Sophie Kaiser" data-alt-en="Floral birthday invitation for Sophie Kaiser" loading="lazy"><span class="media-badge">SOPHIE KAISER</span></div>
           <div class="project-info"><div><span class="project-type" data-i18n="project.sophie.type">EINLADUNG · FLORAL</span><h3>Sophie Kaiser</h3><p data-i18n="project.sophie.desc">Eine blumige Einladung zum Geburtstag.</p></div><span class="project-arrow">↗</span></div>
         </article>
         <article class="project-card card-dj">
-          <div class="project-media poster-media"><video autoplay muted loop playsinline controls preload="metadata" poster="assets/dj-ketanoizer-poster.jpg" aria-label="Animiertes Sci-Fi-Release-Poster für DJ Ketanoizer" data-aria-de="Animiertes Sci-Fi-Release-Poster für DJ Ketanoizer" data-aria-en="Animated sci-fi release poster for DJ Ketanoizer"><source src="assets/dj-ketanoizer.mp4" type="video/mp4">Dein Browser kann dieses Video leider nicht abspielen.</video><span class="planet-glow planet-left" aria-hidden="true"></span><span class="planet-glow planet-right" aria-hidden="true"></span><span class="planet-glow planet-low" aria-hidden="true"></span><a class="media-badge badge-yellow" href="assets/dj-ketanoizer-poster.pdf" target="_blank" rel="noopener" data-i18n="project.pdf">PDF-VERSION ↗</a></div>
+          <div class="project-media poster-media"><video autoplay muted loop playsinline controls preload="metadata" poster="assets/dj-ketanoizer-poster.jpg" aria-label="Animiertes Sci-Fi-Release-Poster für DJ Ketanoizer" data-aria-de="Animiertes Sci-Fi-Release-Poster für DJ Ketanoizer" data-aria-en="Animated sci-fi release poster for DJ Ketanoizer"><source src="assets/dj-ketanoizer.mp4" type="video/mp4"><span data-i18n="video.unsupported">Dein Browser kann dieses Video leider nicht abspielen.</span></video><span class="planet-glow planet-left" aria-hidden="true"></span><span class="planet-glow planet-right" aria-hidden="true"></span><span class="planet-glow planet-low" aria-hidden="true"></span><a class="media-badge badge-yellow" href="assets/dj-ketanoizer-poster.pdf" target="_blank" rel="noopener" data-i18n="project.pdf">PDF-VERSION ↗</a></div>
           <div class="project-info"><div><span class="project-type" data-i18n="project.dj.type">MOTION DESIGN · 5 SEK</span><h3>New Release</h3><p data-i18n="project.dj.desc">Das Sci-Fi-Poster für DJ Ketanoizer — jetzt animiert.</p></div><span class="project-arrow">↗</span></div>
         </article>
         <article class="project-card card-lumi">
@@ -78,7 +86,7 @@
           <div class="project-info"><div><span class="project-type" data-i18n="project.lumi.type">BRANDING · SOCIAL MEDIA</span><h3>Lumi Skin</h3><p data-i18n="project.lumi.desc">Ein Instagram-Konzept für eine Pflegebrand mit eigener Produktwelt.</p></div><span class="project-arrow">↗</span></div>
         </article>
         <article class="project-card card-film">
-          <div class="project-media video-media"><video controls playsinline preload="none" poster="assets/outdoor-film.jpg" aria-label="Film: Draußen unterwegs" data-aria-de="Film: Draußen unterwegs" data-aria-en="Film: Out for a walk"><source src="assets/outdoor-film.mp4" type="video/mp4">Video nicht verfügbar.</video><span class="media-badge badge-white">PLAY ▶</span></div>
+          <div class="project-media video-media"><video controls playsinline preload="none" poster="assets/outdoor-film.jpg" aria-label="Film: Draußen unterwegs" data-aria-de="Film: Draußen unterwegs" data-aria-en="Film: Out for a walk"><source src="assets/outdoor-film.mp4" type="video/mp4"><span data-i18n="video.unavailable">Video nicht verfügbar.</span></video><span class="media-badge badge-white">PLAY ▶</span></div>
           <div class="project-info"><div><span class="project-type" data-i18n="project.dog.type">FILM · UNTERWEGS MIT HUND</span><h3 data-i18n="project.dog.title">Draußen unterwegs</h3><p data-i18n="project.dog.desc">Ein kleiner Spaziergang mit großem Star auf vier Pfoten.</p></div><span class="project-arrow">↗</span></div>
         </article>
         <article class="project-card card-gaming">
@@ -110,6 +118,6 @@
     </section>
   </main>
 
-  <footer class="footer page-wrap"><a class="wordmark" href="#start" aria-label="Saskia Leismann — nach oben"><svg viewBox="0 0 52 46" role="img" aria-hidden="true"><path d="M25 9C19 4 9 5 7 11c-2 6 6 8 14 11 8 3 8 10 2 15-6 4-14 3-18-1M33 8l-4 25c-1 6 4 8 11 3M35 5l.2.2"/></svg></a><span>© <span id="year">2026</span> Saskia Leismann</span><a href="#start" data-i18n="footer.top">Zurück nach oben ↑</a></footer>
+  <footer class="footer page-wrap"><span>© <span id="year">2026</span> Saskia Leismann</span><a href="#start" data-i18n="footer.top">Zurück nach oben ↑</a></footer>
 </body>
 </html>
