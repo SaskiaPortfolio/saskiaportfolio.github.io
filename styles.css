@@ -581,10 +581,10 @@ html[lang="it"] .language-toggle .flag-it { display: block; }
   .section-heading > p { width: 100%; max-width: 360px; margin: 0; font-size: 13px; line-height: 1.7; }
   .project-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 34px; }
   .project-grid > .project-card { grid-column: 1; width: 100%; margin: 0; }
-  .project-media, .card-wedding .project-media, .card-birthday .project-media, .card-sophie .project-media, .card-lumi .project-media, .card-gaming .project-media, .card-film .project-media, .card-reel .project-media { aspect-ratio: 1.08; }
+  .project-media, .card-wedding .project-media, .card-birthday .project-media, .card-sophie .project-media, .card-lumi .project-media, .card-gaming .project-media, .card-warzone .project-media, .card-film .project-media, .card-reel .project-media { aspect-ratio: 1.08; }
   .project-grid > .card-sophie .project-media { aspect-ratio: 1 / 1; }
   .project-grid > .card-wedding .project-media, .project-grid > .card-birthday .project-media { aspect-ratio: .82; }
-  .project-grid > .card-lumi .project-media, .project-grid > .card-gaming .project-media { aspect-ratio: 1.5; }
+  .project-grid > .card-lumi .project-media, .project-grid > .card-gaming .project-media, .project-grid > .card-warzone .project-media { aspect-ratio: 1.5; }
   .project-grid > .card-dj .project-media { aspect-ratio: 16 / 9 !important; }
   .project-grid > .card-film .project-media { aspect-ratio: .9; }
   .project-info { align-items: flex-start; gap: 12px; padding: 12px 1px 0; }
@@ -634,7 +634,8 @@ html[lang="it"] .language-toggle .flag-it { display: block; }
   .project-grid > .card-sophie .project-media { aspect-ratio: 1 / 1; }
   .project-grid > .card-dj .project-media { aspect-ratio: 16 / 9 !important; }
   .project-grid > .card-lumi .project-media,
-  .project-grid > .card-gaming .project-media { aspect-ratio: 1.5; }
+  .project-grid > .card-gaming .project-media,
+  .project-grid > .card-warzone .project-media { aspect-ratio: 1.5; }
 }
 
 /* Header hierarchy: availability left, navigation centered, language at the far right. */
@@ -901,11 +902,11 @@ body { background: #0c0c0d; color: #f2f0eb; }
 .project-card:hover .project-media { box-shadow: 0 16px 32px #0009; }
 .card-wedding .project-media, .card-birthday .project-media, .card-sophie .project-media,
 .card-lumi .project-media, .card-film .project-media, .card-reel .project-media, .card-gaming .project-media,
-.card-dj .project-media { background: #171718; }
+.card-warzone .project-media, .card-dj .project-media { background: #171718; }
 .project-type { color: #ff7168; }
 .project-info h3, .project-info .card-birthday h3, .card-birthday .project-info h3,
 .card-sophie .project-info h3, .card-lumi .project-info h3, .card-film .project-info h3,
-.card-dj .project-info h3, .card-gaming .project-info h3 { color: #f2f0eb !important; }
+.card-dj .project-info h3, .card-gaming .project-info h3, .card-warzone .project-info h3 { color: #f2f0eb !important; }
 .project-info p { color: #aaa59e; }
 .project-arrow { border-color: #ffffff40; color: #f2f0eb; border-radius: 2px; }
 .project-card:hover .project-arrow { background: #e33a32; border-color: #e33a32; }
@@ -1018,11 +1019,11 @@ html, body { background: #f6f1e9; color: #30243a; }
 .project-card:hover .project-media { box-shadow: 0 14px 28px #30243a1c; }
 .card-wedding .project-media, .card-birthday .project-media, .card-sophie .project-media,
 .card-lumi .project-media, .card-film .project-media, .card-gaming .project-media,
-.card-dj .project-media { background: #eee7e3; }
+.card-warzone .project-media, .card-dj .project-media { background: #eee7e3; }
 .project-type { color: #985273; }
 .project-info h3, .card-birthday .project-info h3, .card-sophie .project-info h3,
 .card-lumi .project-info h3, .card-film .project-info h3, .card-dj .project-info h3,
-.card-gaming .project-info h3 { color: #30243a !important; }
+.card-gaming .project-info h3, .card-warzone .project-info h3 { color: #30243a !important; }
 .project-info p { color: #6d6570; }
 .project-arrow { border-color: #30243a45; color: #30243a; }
 .project-card:hover .project-arrow { background: #e6d36e; border-color: #bd4d78; }
@@ -1173,7 +1174,8 @@ html, body { background: #f6f1e9; color: #30243a; }
 .project-grid > .card-sophie .project-media { aspect-ratio: 0.709 !important; }
 .project-grid > .card-dj .project-media,
 .project-grid > .card-lumi .project-media,
-.project-grid > .card-gaming .project-media { aspect-ratio: 16 / 9 !important; }
+.project-grid > .card-gaming .project-media,
+.project-grid > .card-warzone .project-media { aspect-ratio: 16 / 9 !important; }
 .project-grid > .card-film .project-media { aspect-ratio: 0.8 !important; }
 .project-grid .image-media { padding: 0; }
 .project-grid .image-media img { object-fit: contain !important; transform: none !important; }
@@ -1198,7 +1200,8 @@ html, body { background: #f6f1e9; color: #30243a; }
   .project-grid > .card-sophie .project-media { aspect-ratio: 0.709 !important; }
   .project-grid > .card-dj .project-media,
   .project-grid > .card-lumi .project-media,
-  .project-grid > .card-gaming .project-media { aspect-ratio: 16 / 9 !important; }
+  .project-grid > .card-gaming .project-media,
+  .project-grid > .card-warzone .project-media { aspect-ratio: 16 / 9 !important; }
   .project-grid > .card-film .project-media { aspect-ratio: 0.8 !important; }
   .project-info { min-height: 0; }
 }
@@ -1210,24 +1213,30 @@ html, body { background: #f6f1e9; color: #30243a; }
   .project-grid > .card-dj,
   .project-grid > .card-lumi,
   .project-grid > .card-gaming,
+  .project-grid > .card-warzone,
   .project-grid > .card-film { grid-column: span 3; width: auto; justify-self: stretch; }
   .card-dj .project-info h3,
   .card-lumi .project-info h3,
-  .card-gaming .project-info h3 { font-size: 27px; }
+  .card-gaming .project-info h3,
+  .card-warzone .project-info h3 { font-size: 27px; }
   .card-dj .project-info p,
   .card-lumi .project-info p,
-  .card-gaming .project-info p { max-width: 480px; font-size: 13px; }
+  .card-gaming .project-info p,
+  .card-warzone .project-info p { max-width: 480px; font-size: 13px; }
   .card-dj .project-type,
   .card-lumi .project-type,
-  .card-gaming .project-type { font-size: 9px; }
+  .card-gaming .project-type,
+  .card-warzone .project-type { font-size: 9px; }
   .project-grid > .card-film { grid-column: 2 / span 4; width: auto; justify-self: stretch; }
   .project-grid > .card-film .project-media { aspect-ratio: .95 !important; }
 }
 @media (min-width: 761px) and (max-width: 1100px) {
   .card-dj .project-info h3,
   .card-lumi .project-info h3,
-  .card-gaming .project-info h3 { font-size: 24px; }
+  .card-gaming .project-info h3,
+  .card-warzone .project-info h3 { font-size: 24px; }
   .card-dj .project-info p,
   .card-lumi .project-info p,
-  .card-gaming .project-info p { font-size: 12px; }
+  .card-gaming .project-info p,
+  .card-warzone .project-info p { font-size: 12px; }
 }
