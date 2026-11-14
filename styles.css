@@ -540,7 +540,7 @@ body { background: var(--paper); }
   .sticker-top { top: -8px; right: -7px; }
   .sticker-bottom { left: -8px; bottom: -5px; }
 }
-@media (max-width: 700px) {
+@media (max-width: 760px) {
   .page-wrap { width: calc(100% - 36px); }
   .topbar { display: grid; grid-template-columns: minmax(44px, 1fr) auto; grid-template-areas: 'logo language' 'navigation navigation'; min-height: 0; gap: 12px 10px; padding: 12px 0 10px; }
   .topbar > .wordmark { grid-area: logo; }
@@ -605,9 +605,22 @@ body { background: var(--paper); }
   .language-switch button { min-width: 43px; gap: 3px; padding: 5px; }
   .language-switch .flag-icon { width: 19px; height: 13px; }
   .hero { padding-inline: 18px; }
-  .hero h1 { font-size: clamp(37px, 10.8vw, 41px); }
+  .hero h1 { font-size: clamp(35px, 10.2vw, 39px); }
   .hero-visual { margin-inline: 11px; }
   .project-grid { gap: 30px; }
   .contact-section { width: calc(100% - 28px); padding-inline: 17px; }
   .footer { font-size: 7px; }
+}
+
+/* Desktop gallery: two balanced columns; no project is placed in a leftover grid track. */
+@media (min-width: 761px) {
+  .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 58px 28px; align-items: start; }
+  .project-grid > .project-card { grid-column: auto; width: auto; margin: 0; }
+  .project-grid > .card-wedding .project-media,
+  .project-grid > .card-birthday .project-media,
+  .project-grid > .card-film .project-media { aspect-ratio: .88; }
+  .project-grid > .card-sophie .project-media { aspect-ratio: 1 / 1; }
+  .project-grid > .card-dj .project-media { aspect-ratio: 16 / 9 !important; }
+  .project-grid > .card-lumi .project-media,
+  .project-grid > .card-gaming .project-media { aspect-ratio: 1.5; }
 }
