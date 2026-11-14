@@ -15,4 +15,6 @@ Im Projektordner einen lokalen Webserver starten, zum Beispiel mit `python -m ht
 
 ## GitHub Pages
 
-Der Workflow unter `.github/workflows/pages.yml` veröffentlicht die Seite nach Pushes auf `main`. Im Repository unter **Settings → Pages** als Build source **GitHub Actions** auswählen.
+Der Workflow unter `.github/workflows/pages.yml` veröffentlicht die Seite nach Pushes auf `main`. Die Pages-Veröffentlichung ist bereits für GitHub Actions eingerichtet.
+
+Nach erfolgreichem Deployment ist die Seite unter <https://saskiaportfolio.github.io/Portfolio/> erreichbar. Der Status des Deployments steht im Tab **Actions**.
