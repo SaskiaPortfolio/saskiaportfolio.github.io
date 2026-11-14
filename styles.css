@@ -1084,7 +1084,8 @@ html, body { background: #f6f1e9; color: #30243a; }
   flex: 0 0 auto;
   align-items: center;
   gap: 23px;
-  padding-inline: 23px;
+  padding-left: 0;
+  padding-right: 23px;
   font: 600 9px var(--mono);
   letter-spacing: .13em;
   white-space: nowrap;
@@ -1095,7 +1096,7 @@ html, body { background: #f6f1e9; color: #30243a; }
   .hero { grid-template-columns: 1fr; gap: 10px; }
   .hero h1 { font-size: clamp(38px, 11vw, 49px); }
   .ticker-track { min-height: 42px; animation-duration: 30s; }
-  .ticker-group { gap: 16px; padding-inline: 16px; font-size: 8px; }
+  .ticker-group { gap: 16px; padding-left: 0; padding-right: 16px; font-size: 8px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .ticker-track { animation: none; }
